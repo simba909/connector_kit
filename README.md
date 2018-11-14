@@ -1,5 +1,7 @@
 # ConnectorKit 🔌
 
+[![Gem Version](https://badge.fury.io/rb/connector_kit.svg)](https://badge.fury.io/rb/connector_kit)
+
 A simple Ruby gem for communicating with the [App Store Connect API](https://developer.apple.com/app-store-connect/api).
 
 ## Installation
