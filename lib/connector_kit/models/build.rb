@@ -15,8 +15,8 @@ module ConnectorKit
       @expired = attrs['expired']
       @processing_state = attrs['processingState']
       @version = attrs['version']
-      @uploaded_date = Time.parse(attrs['uploadedDate'])
-      @expiration_date = Time.parse(attrs['expirationDate'])
+      @uploaded_date = Time.parse(attrs['uploadedDate']).getlocal
+      @expiration_date = Time.parse(attrs['expirationDate']).getlocal
     end
   end
 end
