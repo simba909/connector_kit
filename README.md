@@ -2,7 +2,12 @@
 
 [![Gem Version](https://badge.fury.io/rb/connector_kit.svg)](https://badge.fury.io/rb/connector_kit)
 
-A simple Ruby gem for communicating with the [App Store Connect API](https://developer.apple.com/app-store-connect/api).
+A simple Ruby gem for communicating with the [App Store Connect API](https://developer.apple.com/app-store-connect/api). Currently supported features:
+
+ - [x] List users
+ - [x] List apps
+ - [x] List builds of an app
+ - [x] Get build details for a specific build
 
 ## Installation
 
