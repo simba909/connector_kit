@@ -1,15 +1,16 @@
+require 'connector_kit/models/model'
+
 module ConnectorKit
-  # Simple model class for representing Builds in the App Store Connect API
-  class Build
-    attr_reader :id,
-                :expired,
+  # Simple model class for representing Builds
+  class Build < Model
+    attr_reader :expired,
                 :processing_state,
                 :version,
                 :uploaded_date,
                 :expiration_date
 
     def initialize(options)
-      @id = options['id']
+      super(options)
 
       attrs = options['attributes']
       @expired = attrs['expired']

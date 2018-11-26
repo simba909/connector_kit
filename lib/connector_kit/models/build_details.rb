@@ -1,10 +1,12 @@
+require 'connector_kit/models/model'
+
 module ConnectorKit
-  # Simple model class for representing Build details in the App Store Connect API
-  class BuildDetails
-    attr_reader :id, :external_build_state, :internal_build_state
+  # Simple model class for representing Build details
+  class BuildDetails < Model
+    attr_reader :external_build_state, :internal_build_state
 
     def initialize(options)
-      @id = options['id']
+      super(options)
 
       attrs = options['attributes']
       @external_build_state = attrs['externalBuildState']

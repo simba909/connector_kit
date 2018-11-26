@@ -1,10 +1,12 @@
+require 'connector_kit/models/model'
+
 module ConnectorKit
-  # Simple model class for representing Apps in the App Store Connect API
-  class App
-    attr_reader :id, :bundle_id, :name, :sku
+  # Simple model class for representing Apps
+  class App < Model
+    attr_reader :bundle_id, :name, :sku
 
     def initialize(options)
-      @id = options['id']
+      super(options)
 
       attrs = options['attributes']
       @bundle_id = attrs['bundleId']

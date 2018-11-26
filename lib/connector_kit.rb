@@ -1,9 +1,10 @@
 require 'connector_kit/httpclient.rb'
 require 'connector_kit/token_generator'
 require 'connector_kit/version'
-require 'connector_kit/mappers/app_list_mapper'
-require 'connector_kit/mappers/build_list_mapper'
-require 'connector_kit/mappers/build_details_mapper'
+require 'connector_kit/mappers/app_list_response_mapper'
+require 'connector_kit/mappers/user_list_response_mapper'
+require 'connector_kit/mappers/build_list_response_mapper'
+require 'connector_kit/mappers/build_details_response_mapper'
 
 module ConnectorKit
   # Class used for communicating with the App Store Connect API
@@ -22,15 +23,22 @@ module ConnectorKit
     end
 
     def apps
-      @httpclient.get '/apps', AppListMapper.new
+      @httpclient.get '/apps', AppListResponseMapper.new
+    end
+
+    def users
+      @httpclient.get '/users', UserListResponseMapper.new
     end
 
     def app_builds(app)
-      @httpclient.get "/apps/#{app.id}/builds", BuildListMapper.new
+      @httpclient.get "/apps/#{app.id}/builds", BuildListResponseMapper.new
     end
 
     def build_beta_details(build)
-      @httpclient.get "/buildBetaDetails/#{build.id}", BuildDetailsMapper.new
+      @httpclient.get(
+        "/buildBetaDetails/#{build.id}",
+        BuildDetailsResponseMapper.new
+      )
     end
   end
 end
